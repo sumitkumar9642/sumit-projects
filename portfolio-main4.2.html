@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="porfolio.html">
+<link rel="stylesheet" href="about.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+    <style>
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.about-us {
+  max-width: 1000px;
+  margin: auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff5733, #ffcc00, #33ccff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textFade 2s ease-in-out;
+}
+
+p {
+  font-size: 1rem;
+  padding: 5px 0;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+p:hover {
+  transform: translateX(10px);
+  color: #007bff;
+}
+
+.body1, .body2, .body3, .body4, .body5, .body6 {
+  margin-bottom: 40px;
+  padding: 20px;
+  border-left: 5px solid #2196f3;
+  background-color: #fafafa;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease;
+}
+
+.body1:hover,
+.body2:hover,
+.body3:hover,
+.body4:hover,
+.body5:hover,
+.body6:hover {
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.2);
+}
+
+footer.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #222;
+  color: white;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  animation: slideUp 1s ease-out 0.5s backwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textFade {
+  0% {
+    opacity: 0;
+    letter-spacing: 5px;
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 0;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-us {
+    padding: 15px;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+}
+
+    </style>
+</head>
+<header>
+ <body>
+    <div class="about-us">
+           <div class="body1">
+<h1>About Me </h1> 
+
+ <p> I'm a web developer with a strong focus on building clean, responsive, 
+and user-friendly websites. I specialize in front-end
+ development using HTML, CSS, JavaScript, and modern frameworks
+  like React. I'm passionate about continuous learning and
+   problem-solving through code.</p>
+</div>
+ <!-- body-2 hai yee  -->
+
+<div class="body2">
+<h2> Professional Skills</h2>
+
+<p>🖥 Web Technologies</p>
+<p>Responsive Web Design (Media Queries, Flexbox, Grid) </p>
+<p>CSS Frameworks: Bootstrap, Tailwind CSS</p>
+</div>
+
+ <!-- body-3 hai yee  -->
+<div class="body3">
+ <h2> 🛠 Tools & Version Control  </h2>
+ <p> Git & GitHub </p>
+ <p> VS Code , Figma (for UI/UX) </p>
+ <p> Notepad </p>
+ <p></p>
+</div>
+ <!-- body-4 hai yee  -->
+ <div class="body4">
+<h2> Projects </h2>
+<p> Amazon Clone</p>
+ <p>Live link + GitHub repo </p>
+   <p>Blinkit Clone </p>
+
+ <p> Portfolio Website – Live | GitHub <br>
+Built with HTML, CSS, and JavaScript; 
+fully responsive personal portfolio site. </p>
+</div>
+ <!-- body-5 hai yee  -->
+
+<h2>Education / Certifications </h2>
+<p>  ITI Certification in [Web Development]  </p>
+<p>FreeCodeCamp, Coursera, or other online course completions</p>
+ <p>Persuing BCA</p>
+  <!-- body-6 hai yee  -->
+   <div class="body6">
+  <h2> Contact </h2>
+ <p>Email - kumarsumit02928@gmail    </p>
+ <p>LinkedIn / GitHub</p>
+ <p> WhatsApp Number 971xxx561x    </p>
+</div>
+    
+    <!-- about us ka last div  -->
+
+ </div>
+</header>
+ <footer class="footer">
+  <p>© 2025 Sumit Kumar.  All rights reserved.</p>
+  <p>Made with ❤️ using HTML, CSS, and JavaScript</p>
+</footer>
+</body>
+</html>
+
+

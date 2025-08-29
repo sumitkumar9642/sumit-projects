@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DMRC – Route & Fare (Multi-Line)</title>
+  <link rel="stylesheet" href="dc.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">DMRC</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Routes</a>
+      <a href="#">Fare</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Delhi Metro – Route & Fare</h1>
+
+    <form id="routeForm" class="card">
+      <div class="field">
+        <label for="from">From Station</label>
+        <select id="from" required></select>
+      </div>
+      <div class="field">
+        <label for="to">To Station</label>
+        <select id="to" required></select>
+      </div>
+      <button type="submit">Show Route & Fare</button>
+    </form>
+
+    <section id="summary" class="card muted"></section>
+
+    <section id="details" class="card">
+      <h2>Route Details</h2>
+      <ol id="steps"></ol>
+    </section>
+
+    <section class="card">
+      <h2>Legend</h2>
+      <div id="legend" class="legend"></div>
+    </section>
+  </main>
+  <div class="img">
+ <img src="dmrc-image.png" alt="DMRC Logo" height="500px" width="800px";> </div>
+  <footer>© 2025 DMRC Clone (Demo) — Multi-line routes, interchanges & fare slabs</footer>
+
+  <script src="dc.js"></script>
+</body>
+</html>

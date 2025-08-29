@@ -1,0 +1,116 @@
+/* General Page */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #81d4fa, #e1f5fe);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  transition: transform 0.6s ease-in-out;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #01579b;
+  font-size: 3rem;
+  text-shadow: 2px 2px #b3e5fc;
+}
+
+p {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-top: 0px;
+  text-shadow: 1px 1px #0772c3;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  grid-template-rows: repeat(3, 120px);
+  gap: 12px;
+}
+
+.cell {
+  width: 120px;
+  height: 120px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.cell:hover {
+  background-color: #b2ebf2;
+  transform: scale(1.05);
+}
+
+#status {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #004d40;
+  text-shadow: 1px 1px #b2dfdb;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  background-color: #0288d1;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #0277bd;
+  transform: scale(1.05);
+}
+
+/* Shift effect */
+body.shift-down {
+  transform: translateY(10%);
+}
+
+/* Overlay Popup */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.popup {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.popup h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #01579b;
+}

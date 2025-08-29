@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagonal Theme Toggle</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .tile {
+      transition: background-color 0.6s, color 0.6s;
+      width: 100%;
+      height: 100%;
+    }
+
+    .light-mode .tile {
+      background-color: #ffffff;
+      color: #000;
+    }
+
+    .dark-mode .tile {
+      background-color: #111111;
+      color: #fff;
+    }
+
+    button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ddd;
+      color: #000;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #bbb;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background-color: #2196f3;
+      width: 0%;
+      z-index: 10;
+      transition: width 0.9s ease;
+    }
+
+    .write {
+      position: absolute;
+      top: 100px;
+      left: 20px;
+      width: calc(100% - 40px);
+      max-width: 600px;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #2196f3;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <div class="progress-bar" id="progressBar"></div>
+  <button id="mode">🌙 Switch to Dark Mode</button>
+  <div class="grid" id="grid"></div>
+
+  <div class="write">
+    <h1>Maula ya salli wasallim naat</h1>
+    <p>Maula ya salli wa sallim daiman abadan ‘Ala habibika khayril khalqi kullihimi</p>
+    <p>Muhammadun sayyidul kawnayn wath-thaqalayn Wal-fariqayn min ‘urbin wa min ‘ajami</p>
+    <p>Huwal habib alladhi turja shafa’atuhu Li kulli hawlin minal ahwali muqtahami</p>
+    <!-- Add more lines as needed -->
+  </div>
+
+  <script>
+    const body = document.body;
+    const modeBtn = document.getElementById("mode");
+    const progressBar = document.getElementById("progressBar");
+    const grid = document.getElementById("grid");
+
+    const rows = 3;
+    const cols = 3;
+    const tiles = [];
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const tile = document.createElement("div");
+        tile.classList.add("tile");
+        tile.style.transitionDelay = `${(r + c) * 100}ms`; // ✅ fixed backtick usage
+        grid.appendChild(tile);
+        tiles.push(tile);
+      }
+    }
+
+    let currentMode = localStorage.getItem("mode") || "light";
+    applyMode(currentMode, false);
+
+    modeBtn.addEventListener("click", () => {
+      progressBar.style.width = "0%";
+      setTimeout(() => (progressBar.style.width = "100%"), 50);
+
+      currentMode = currentMode === "light" ? "dark" : "light";
+      localStorage.setItem("mode", currentMode);
+
+      tiles.forEach((tile) => {
+        tile.classList.remove("light-mode", "dark-mode");
+        tile.offsetHeight; // force reflow
+        tile.classList.add(currentMode + "-mode");
+      });
+
+      setTimeout(() => {
+        applyMode(currentMode, true);
+        progressBar.style.width = "0%";
+      }, 900);
+    });
+
+    function applyMode(mode, animate = true) {
+      body.classList.remove("light-mode", "dark-mode");
+      body.classList.add(mode + "-mode");
+      modeBtn.textContent =
+        mode === "light" ? "🌙 Switch to Dark Mode" : "☀ Switch to Light Mode";
+
+      if (!animate) {
+        tiles.forEach((tile) => {
+          tile.classList.add(mode + "-mode");
+        });
+      }
+    }
+  </script>
+</body>
+</html>

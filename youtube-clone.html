@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube Clone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      min-height: 100vh;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 20px;
+      z-index: 10;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .left-section,
+    .right-section {
+      display: flex;
+      align-items: center;
+    }
+
+    .left-section i {
+      font-size: 20px;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+
+    .logo {
+      background-image: url('youtube-image.jpg'); /* replace with your actual image path */
+      background-size: cover;
+      height: 40px;
+      width: 90px;
+      margin-right: 5px;
+    }
+
+    .logo-text {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .center-section {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .search-bar {
+      display: flex;
+      width: 60%;
+      max-width: 500px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #ccc;
+      border-right: none;
+      border-radius: 20px 0 0 20px;
+      outline: none;
+    }
+
+    .search-bar button {
+      padding: 8px 16px;
+      border: 1px solid #ccc;
+      background-color: #f8f8f8;
+      border-left: none;
+      border-radius: 0 20px 20px 0;
+      cursor: pointer;
+    }
+
+    .right-section i {
+      font-size: 18px;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 60px; /* height of header */
+      left: 0;
+      width: 220px;
+      height: calc(100% - 60px);
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+      padding-top: 20px;
+      z-index: 5;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .sidebar li:hover {
+      background-color: #f0f0f0;
+    }
+
+    .sidebar i {
+      margin-right: 16px;
+      font-size: 18px;
+      width: 20px;
+      text-align: center;
+    }
+
+    /* Main content area */
+    .main-content {
+      margin-top: 60px; /* header height */
+      margin-left: 220px; /* sidebar width */
+      padding: 20px;
+      flex-grow: 1;
+    }
+
+    @media (max-width: 768px) {
+      .search-bar {
+        width: 80%;
+      }
+
+      .right-section i {
+        margin-left: 10px;
+      }
+
+      .sidebar {
+        width: 60px;
+      }
+
+      .sidebar li span {
+        display: none;
+      }
+
+      .main-content {
+        margin-left: 60px;
+      }
+    }
+    .search-bar{
+        margin-top: 8px;
+        margin-left: 10px; 
+        font-size: large;
+        color: #727272;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li><i class="fa-solid fa-house"></i> <span>Home</span></li>
+      <li><i class="fa-solid fa-compass"></i> <span>Explore</span></li>
+      <li><i class="fa-solid fa-bell"></i> <span>Notifications</span></li>
+      <li><i class="fa-solid fa-folder"></i> <span>Library</span></li>
+      <li><i class="fa-solid fa-clock-rotate-left"></i> <span>History</span></li>
+      <li><i class="fa-solid fa-thumbs-up"></i> <span>Liked Videos</span></li>
+      <li><i class="fa-solid fa-gear"></i> <span>Settings</span></li>
+    </ul>
+  </div>
+
+  <!-- Header/Navbar -->
+  <header>
+    <div class="navbar">
+      <div class="left-section">
+        <i class="fa-solid fa-bars"></i>
+        <div class="logo"></div>
+        <span class="logo-text">IN</span>
+      </div>
+
+      <div class="center-section">
+        <div class="search-bar">
+          <input type="text" placeholder="Search" />
+          <button><i class="fa-solid fa-magnifying-glass"></i></button>
+               <i class="fa-solid fa-microphone " ></i>
+        </div>
+      </div>
+
+      <div class="right-section">
+
+        <i class="fa-solid fa-bell"></i>
+        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-ellipsis-v"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+   
+  </div>
+</body>
+</html>

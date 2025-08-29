@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upcoming Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #0d47a1;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .refresh-icon {
+      font-size: 48px;
+      cursor: pointer;
+      transition: transform 0.4s ease, color 0.4s ease;
+      color: #1565c0;
+    }
+
+    .refresh-icon:hover {
+      transform: rotate(360deg) scale(1.2);
+      color: #e53935;
+    }
+
+    .rotating {
+      animation: spin 2s linear infinite;
+      color: #1565c0;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+        color: #1565c0;
+      }
+      50% {
+        color: #e53935;
+      }
+      100% {
+        transform: rotate(360deg);
+        color: #1565c0;
+      }
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Upcoming Projects</h1>
+    <p>Stay tuned! Exciting projects are on the way.</p>
+    <i class="fas fa-sync-alt refresh-icon" id="refreshBtn" title="Refresh"></i>
+    <div class="footer">Powered by Sumit © 2025</div>
+  </div>
+
+  <script>
+    const refreshBtn = document.getElementById('refreshBtn');
+    refreshBtn.addEventListener('click', () => {
+      refreshBtn.classList.add('rotating');
+      setTimeout(() => {
+        refreshBtn.classList.remove('rotating');
+        alert("Projects are coming soon. Stay tuned!");
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="tic-tak-toe.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+</head>
+<body>
+  <h1> Tic Tac Toe</h1>
+  <p> .. Let's started ..</p>
+  <div class="board" id="board"></div>
+  <div id="status"></div>
+  <button onclick="resetGame()"> <i class="fa-solid fa-rotate-right">  </i>
+Restart Game</button>
+
+  <script src="link.js" >
+    const board = document.getElementById("board");
+const statusText = document.getElementById("status");
+const overlay = document.getElementById("overlay");
+const winnerMessage = document.getElementById("winner-message");
+
+let currentPlayer = "X";
+let cells = ["", "", "", "", "", "", "", "", ""];
+let gameActive = true;
+
+function createBoard() {
+  board.innerHTML = "";
+  cells.forEach((_, index) => {
+    const cell = document.createElement("div");
+    cell.classList.add("cell");
+    cell.addEventListener("click", () => makeMove(index));
+    board.appendChild(cell);
+  });
+}
+
+function makeMove(index) {
+  if (cells[index] || !gameActive) return;
+  cells[index] = currentPlayer;
+  updateBoard();
+  checkWinner();
+  currentPlayer = currentPlayer === "X" ? "O" : "X";
+}
+
+function updateBoard() {
+  const cellElements = document.querySelectorAll(".cell");
+  cellElements.forEach((cell, i) => {
+    cell.textContent = cells[i];
+  });
+}
+
+function checkWinner() {
+  const winPatterns = [
+    [0,1,2],[3,4,5],[6,7,8],
+    [0,3,6],[1,4,7],[2,5,8],
+    [0,4,8],[2,4,6]
+  ];
+
+  let winner = null;
+  winPatterns.forEach(pattern => {
+    const [a,b,c] = pattern;
+    if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
+      winner = cells[a];
+    }
+  });
+
+  if (winner) {
+    statusText.textContent = `${winner} Wins 🎉`;
+    gameActive = false;
+    showWinnerPopup(`${winner} Wins 🎉`);
+  } else if (!cells.includes("")) {
+    statusText.textContent = "It's a Draw 🤝";
+    gameActive = false;
+    showWinnerPopup("It's a Draw 🤝");
+  }
+}
+
+function showWinnerPopup(message) {
+  document.body.classList.add("shift-down");
+  winnerMessage.textContent = message;
+  overlay.classList.remove("hidden");
+}
+
+function resetGame() {
+  cells = ["", "", "", "", "", "", "", "", ""];
+  gameActive = true;
+  currentPlayer = "X";
+  statusText.textContent = "";
+  document.body.classList.remove("shift-down");
+  overlay.classList.add("hidden");
+  createBoard();
+}
+
+createBoard();
+
+  </script>
+</body>
+</html>
