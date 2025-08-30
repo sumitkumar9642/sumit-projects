@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
   <link rel="stylesheet" href="portfolio9.css">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,
    initial-scale=1.0">
   <title>Portfolio | Sumit</title>
   <link rel="stylesheet" 
-  href="https://cdnjs.cloudf
-  lare.com/ajax/libs/font-
-  awesome/6.4.0/css/all.min.css">
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -23,17 +21,17 @@
       </div>
     </div>
     <div class="time">
-      <div>Aug 29, 2025 last upadted </div>
-      <div>India, 11:27 AM</div>
+      <div>Aug 29, 2025 last updated </div>
+      <div> <span id="liveClock"></span></div>
+      <i class="fas fa-moon theme-toggle" id="themeBtn"></i>
     </div>
   </header>
 
   <!-- Main Container -->
   <div class="container">
-    <!-- Left -->
     <div class="card intro">
       <h1>Hello, I'm <span>Sumit</span> – Web Developer !</h1>
-      <p>As a Web  developer, I blend code and design to build unique, 
+      <p>As a Web developer, I blend code and design to build unique, 
         user-centric web pages. Let’s turn your ideas into a dynamic and
          engaging digital reality!</p>
 
@@ -42,36 +40,46 @@
           <h3>My Creative Showcase</h3>
           <p>Discover my portfolio of projects,
              where creativity meets functionality.
-             Each work reflects
-             my passion for crafting thoughtful designs and
+             Each work reflects my passion for crafting thoughtful designs and
               innovative digital experiences.</p>
         </div>
         <div class="project">
            <h2>🎓 Education & Qualification</h2>
-
-  <p><h3>IGNOU University</h3> BCA  (2025 – Present)</p>
-  <p><h3> Web Development</h3> Html ,css ,Javascript , php</p>
-  <p><h3>CBSE – Class 12th (PCM)</h3> passed out in 2024</p>
+           <p><h3>IGNOU University</h3> BCA (Bachelor of Computer Applications - Present 2025)</p>
+           <p>Class 12th (PCM) passed out in 2024 from CBSE</p>
+           <p><h3>📖 Learning Japanese 🇯🇵</h3> Exploring Hiragana, Katakana, and Kanji step by step.</p>
+           <p><h3>Pursuing Masters in Web Development</h3></p>
         </div>
         <div class="project">
-          <h3>Experience</h3>
-          <p> Website Redesign , Build and Maintain.</p>
+          <h3>Certifications</h3>
+          <p>Web Development from WCSC.</p>
+          <p>Cyber Awareness AI Basic programme from NIIT</p>
+          <p>AI-powered People Manager from LinkedIn</p>
+          <p>Participation Certificate in Internship Studio</p>
         </div>
       </div>
     </div>
 
-
     <!-- Right -->
     <div class="card sticker">
       <img src="port-1.jpg" alt="Sticker">
-      <h3>projects I’ve worked </h3>
+      <h3>Projects I’ve Worked</h3>
       <div class="skills">
-        <span>📦🛒 Amazon </span>
+        <span>📦🛒 Amazon</span>
         <span>🖥️🚇📍DMRC</span>
-        <span>⭕❌Tik-Tac </span>
-        <span>📱 portfolio</span>
+        <span>⭕❌ Tic-Tac</span>
+        <span>📱 Portfolio</span>
         <span>🧮 Calculator</span>
         <span>🚦🔴🟡🟢 Traffic-light</span>
+      </div>
+      <h3>Skills And Technology</h3>
+      <div class="skills">
+        <span>💻 HTML</span>
+        <span>🎨 CSS</span>
+        <span>⚙️ JavaScript</span>
+        <span>🛠️ PHP</span>
+        <span>🌐 Web Design</span>
+        <span>🔧 Debugging</span>
       </div>
     </div>
   </div>
@@ -79,10 +87,43 @@
   <footer>
     © 2025 Sumit Kumar | Built with ❤️ HTML & CSS
     <div class="contact">
-    <b><a href="sign-up.html">📩 Contact Us</a>
-    <p>gmail-sumitkumar02928@gmail.com</p> </div>
-</b>
+      <b><a href="sign-up.html">📩 Contact Us</a></b>
+    </div>
+    <p>Gmail: sumitkumar02928@gmail.com</p> 
   </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Live Clock
+    function updateClock(){
+      const now = new Date();
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      minutes = minutes < 10 ? '0'+minutes : minutes;
+      seconds = seconds < 10 ? '0'+seconds : seconds;
+      document.getElementById("liveClock").textContent =
+        hours + ":" + minutes + ":" + seconds + " " + ampm;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Dark/Light Theme Toggle
+    const themeBtn = document.getElementById("themeBtn");
+    themeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      if(document.body.classList.contains("dark")){
+        themeBtn.classList.remove("fa-moon");
+        themeBtn.classList.add("fa-sun");
+      } else {
+        themeBtn.classList.remove("fa-sun");
+        themeBtn.classList.add("fa-moon");
+      }
+    });
+  </script>
 
 </body>
 </html>
